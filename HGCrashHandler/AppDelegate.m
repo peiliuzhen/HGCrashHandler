@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "HGCrashFile.h"
+#import "HGSignalHandler.h"
+#import "HGUncaughtExceptionHandler.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    InstallSignalHandler();
+    InstallUncaughtExceptionHandler();
+    
     return YES;
 }
 

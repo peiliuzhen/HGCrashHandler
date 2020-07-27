@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  HGCrashTestViewController.m
 //  HGSmallSpace
 //
 //  Created by plz on 2020/7/21.
 //  Copyright © 2020 Apple Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HGCrashTestViewController.h"
 #import "UnrecognizedSelectorVC.h"
 #import "KvcCrashVC.h"
 #import "BadAccessCrashVC.h"
@@ -14,19 +14,18 @@
 #import "CollectionCrashVC.h"
 #import "ThreadCrashVC.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HGCrashTestViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) UITableView * tableView;
 @property(nonatomic, strong) NSMutableArray * dataArray;
 
 @end
 
-@implementation ViewController
+@implementation HGCrashTestViewController
 
 #pragma mark - life cyle 1、控制器生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=UIColor.whiteColor;
     [self setTitle:@"Crash 测试"];
     [self.view addSubview:self.tableView];
     
@@ -98,36 +97,36 @@
     switch (indexPath.row) {
         case 0:{
                 UnrecognizedSelectorVC *vc = [[UnrecognizedSelectorVC alloc] init];
-                [self presentViewController:vc animated:YES completion:nil];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         case 1:{
             KvcCrashVC *vc = [[KvcCrashVC alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 2:{
             BadAccessCrashVC *vc = [[BadAccessCrashVC alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self.navigationController pushViewController:vc animated:YES];
 
         }
             break;
         case 3:{
             KvoCrashVC *vc = [[KvoCrashVC alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self.navigationController pushViewController:vc animated:YES];
 
         }
             break;
         
         case 4:{
             CollectionCrashVC *vc = [[CollectionCrashVC alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
-
+            [self.navigationController pushViewController:vc animated:YES];
+            
         }
             break;
         case 5:{
             ThreadCrashVC *vc = [[ThreadCrashVC alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self.navigationController pushViewController:vc animated:YES];
 
         }
         break;
@@ -170,4 +169,3 @@
 }
 
 @end
-
